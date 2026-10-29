@@ -1,0 +1,236 @@
+/* ==========================================================================
+   Bølgebrud design tokens  ·  v0.1 (draft)
+   Single source of truth for colour, type, space and shape.
+   Import this file first. Never write a raw hex value anywhere else.
+
+   USING COLOUR
+   - Navy is the deep base, cobalt the vivid brand blue, pink their partner, orange the accent.
+   - Orange is NEVER used for body text. It is a fill (with --bb-on-accent
+     text on top) or a large/graphic element. Contrast: orange on cobalt 3.6:1.
+   - Thin lines/icons in orange on light or pink backgrounds use
+     --bb-accent-graphic (a deeper orange), not --bb-accent.
+   - Every text/background pairing below was contrast-checked (WCAG AA).
+   ========================================================================== */
+
+:root {
+  /* ---- Primitives: colour ---- */
+
+  /* Cobalt — the vivid brand blue (main colour and accent) */
+  --bb-cobalt-50: #F2F5FA;
+  --bb-cobalt-100: #E0E7F2;
+  --bb-cobalt-200: #BFCEE4;
+  --bb-cobalt-300: #99B0D3;
+  --bb-cobalt-400: #6689BE;
+  --bb-cobalt-500: #3361A8;
+  --bb-cobalt-600: #003689;
+  --bb-cobalt-700: #003A92;
+  --bb-cobalt-800: #002E75;
+  --bb-cobalt-900: #002258;
+  --bb-cobalt-950: #00163C;
+
+  /* Navy — the deep dark: text, dark surfaces */
+  --bb-navy-300: #B6B8BE;
+  --bb-navy-400: #91949D;
+  --bb-navy-500: #6D717D;
+  --bb-navy-600: #414656;
+  --bb-navy-700: #282E40;
+  --bb-navy-800: #1A2033;
+  --bb-navy: #0B1226;
+
+  /* Brand pink */
+  --bb-pink-50: #FFF5FF;
+  --bb-pink-100: #FFE6FE;
+  --bb-pink-200: #FFCCFD;
+  --bb-pink-300: #F09CEC;
+  --bb-pink-400: #E375DE;
+
+  /* Burning orange — accent, used sparingly */
+  --bb-orange-100: #FFE9DF;
+  --bb-orange-200: #FFD2BF;
+  --bb-orange-500: #FF6A2B;
+  --bb-orange-600: #DC5923;
+  --bb-orange-700: #B4461B;
+
+  /* Neutrals (navy-tinted) */
+  --bb-white: #FFFFFF;
+  --bb-paper: #FBF8FC;
+  --bb-grey-100: #F0F1F2;
+  --bb-grey-200: #E2E3E5;
+  --bb-grey-300: #C9CBCF;
+  --bb-grey-400: #9DA0A8;
+  --bb-grey-500: #717681;
+  --bb-grey-600: #4F5463;
+  --bb-grey-700: #303647;
+
+  /* Status */
+  --bb-success-600: #0E7A4B;
+  --bb-success-100: #DDF3E8;
+  --bb-danger-600: #C4123C;
+  --bb-danger-100: #FCE1E8;
+  --bb-warning-100: #FFF0C2;
+  --bb-warning-800: #6B4A00;
+
+  /* ---- Type ---- */
+  --bb-font-display: "Epilogue", "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  --bb-font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --bb-font-safe: Arial, Helvetica, sans-serif; /* email, Word, anywhere web fonts do not load */
+
+  --bb-text-xs: 0.8125rem;
+  --bb-text-sm: 0.9375rem;
+  --bb-text-base: 1.0625rem;                       /* 17px body */
+  --bb-text-lg: 1.25rem;
+  --bb-text-xl: clamp(1.5rem, 1.3rem + 0.8vw, 1.875rem);
+  --bb-text-2xl: clamp(1.875rem, 1.5rem + 1.5vw, 2.5rem);
+  --bb-text-3xl: clamp(2.5rem, 1.8rem + 2.8vw, 3.75rem);
+  --bb-text-4xl: clamp(3.25rem, 2rem + 5vw, 6rem);  /* hero */
+
+  --bb-leading-tight: 1.0;    /* Epilogue Black display, uppercase */
+  --bb-leading-snug: 1.25;
+  --bb-leading-body: 1.6;
+  --bb-tracking-display: 0.01em;
+  --bb-weight-display: 900;
+  --bb-weight-body: 400;
+  --bb-weight-strong: 700;
+  --bb-measure: 68ch;         /* comfortable line length */
+
+  /* ---- Space (4px base) ---- */
+  --bb-space-1: 0.25rem;  --bb-space-2: 0.5rem;   --bb-space-3: 0.75rem;
+  --bb-space-4: 1rem;     --bb-space-5: 1.5rem;   --bb-space-6: 2rem;
+  --bb-space-7: 3rem;     --bb-space-8: 4rem;     --bb-space-9: 6rem;
+  --bb-space-10: 8rem;
+  --bb-container: 75rem;      /* 1200px */
+  --bb-gutter: clamp(1rem, 4vw, 2rem);
+  /* Breakpoints (for @media, which cannot read variables): 30em, 48em, 68em, 85em */
+
+  /* ---- Shape: soft, rounded, from the pill/arch blocks of the new mark ---- */
+  --bb-radius-sm: 0.375rem;
+  --bb-radius-md: 0.75rem;
+  --bb-radius-lg: 1.5rem;
+  --bb-radius-pill: 999px;
+  --bb-radius-arch: 999px 999px 0 0;   /* the signature arch */
+  --bb-border-thin: 1px;
+  --bb-border-thick: 3px;
+
+  /* ---- Elevation (navy-tinted) ---- */
+  --bb-shadow-sm: 0 1px 2px rgb(0 20 60 / 0.12);
+  --bb-shadow-md: 0 6px 20px rgb(0 20 60 / 0.16);
+  --bb-shadow-lg: 0 18px 48px rgb(0 20 60 / 0.22);
+
+  /* ---- Glow: a soft stage light (added 10 Oct 2026) ----
+     Only on navy or cobalt, only on small elements meant to look like light:
+     indicator lines, active states. Never on text, the logo, photos, cards,
+     buttons at rest, or pink/light backgrounds. Never pulsing. */
+  --bb-glow-accent: 0 0 10px 1px rgb(255 106 43 / 0.65);   /* orange #FF6A2B */
+  --bb-glow-pink: 0 0 10px 1px rgb(255 204 253 / 0.55);    /* pink #FFCCFD */
+
+  /* ---- Motion: gentle, wave-like ---- */
+  --bb-ease-wave: cubic-bezier(0.45, 0.05, 0.25, 1);
+  --bb-duration-fast: 120ms;
+  --bb-duration-base: 240ms;
+  --bb-duration-slow: 480ms;
+}
+
+/* ==========================================================================
+   Themes — set on any element. Navy and cobalt are the brand's two dark looks.
+   <section data-bb-theme="navy"> · "cobalt" · "light" · "pink"
+   ========================================================================== */
+
+:root,
+[data-bb-theme="light"] {
+  --bb-bg: var(--bb-paper);
+  --bb-bg-alt: var(--bb-white);
+  --bb-surface: var(--bb-white);
+  --bb-text: var(--bb-navy);
+  --bb-text-muted: var(--bb-grey-600);
+  --bb-heading: var(--bb-cobalt-700);
+  --bb-border: var(--bb-grey-200);
+  --bb-border-strong: var(--bb-navy);
+  --bb-link: var(--bb-cobalt-700);
+  --bb-link-hover: var(--bb-orange-700);
+  --bb-accent: var(--bb-orange-500);
+  --bb-accent-graphic: var(--bb-orange-600);
+  --bb-on-accent: var(--bb-navy);
+  --bb-brand: var(--bb-cobalt-700);
+  --bb-on-brand: var(--bb-pink-200);
+  --bb-button-bg: var(--bb-cobalt-700);
+  --bb-button-text: var(--bb-pink-200);
+  --bb-button-hover: var(--bb-cobalt-800);
+  --bb-highlight: var(--bb-pink-200);
+  --bb-focus: var(--bb-orange-600);
+}
+
+[data-bb-theme="navy"] {
+  --bb-bg: var(--bb-navy);
+  --bb-bg-alt: var(--bb-navy-800);
+  --bb-surface: var(--bb-navy-800);
+  --bb-text: var(--bb-white);
+  --bb-text-muted: var(--bb-navy-300);
+  --bb-heading: var(--bb-pink-200);
+  --bb-border: var(--bb-navy-600);
+  --bb-border-strong: var(--bb-pink-200);
+  --bb-link: var(--bb-pink-200);
+  --bb-link-hover: var(--bb-white);
+  --bb-accent: var(--bb-orange-500);
+  --bb-accent-graphic: var(--bb-orange-500);
+  --bb-on-accent: var(--bb-navy);
+  --bb-brand: var(--bb-pink-200);
+  --bb-on-brand: var(--bb-navy);
+  --bb-button-bg: var(--bb-pink-200);
+  --bb-button-text: var(--bb-navy);
+  --bb-button-hover: var(--bb-pink-100);
+  --bb-highlight: var(--bb-orange-500);
+  --bb-focus: var(--bb-orange-500);
+}
+
+[data-bb-theme="cobalt"] {
+  --bb-bg: var(--bb-cobalt-700);
+  --bb-bg-alt: var(--bb-cobalt-800);
+  --bb-surface: var(--bb-cobalt-800);
+  --bb-text: var(--bb-white);
+  --bb-text-muted: var(--bb-cobalt-200);
+  --bb-heading: var(--bb-pink-200);
+  --bb-border: var(--bb-cobalt-500);
+  --bb-border-strong: var(--bb-pink-200);
+  --bb-link: var(--bb-pink-200);
+  --bb-link-hover: var(--bb-white);
+  --bb-accent: var(--bb-orange-500);
+  --bb-accent-graphic: var(--bb-orange-500);
+  --bb-on-accent: var(--bb-navy);
+  --bb-brand: var(--bb-pink-200);
+  --bb-on-brand: var(--bb-cobalt-700);
+  --bb-button-bg: var(--bb-pink-200);
+  --bb-button-text: var(--bb-cobalt-700);
+  --bb-button-hover: var(--bb-pink-100);
+  --bb-highlight: var(--bb-orange-500);
+  --bb-focus: var(--bb-orange-500);
+}
+
+[data-bb-theme="pink"] {
+  --bb-bg: var(--bb-pink-200);
+  --bb-bg-alt: var(--bb-pink-100);
+  --bb-surface: var(--bb-pink-100);
+  --bb-text: var(--bb-navy);
+  --bb-text-muted: var(--bb-cobalt-700);
+  --bb-heading: var(--bb-cobalt-700);
+  --bb-border: var(--bb-pink-300);
+  --bb-border-strong: var(--bb-cobalt-700);
+  --bb-link: var(--bb-cobalt-700);
+  --bb-link-hover: var(--bb-navy);
+  --bb-accent: var(--bb-orange-500);
+  --bb-accent-graphic: var(--bb-orange-700);
+  --bb-on-accent: var(--bb-navy);
+  --bb-brand: var(--bb-cobalt-700);
+  --bb-on-brand: var(--bb-pink-200);
+  --bb-button-bg: var(--bb-cobalt-700);
+  --bb-button-text: var(--bb-pink-200);
+  --bb-button-hover: var(--bb-cobalt-800);
+  --bb-highlight: var(--bb-cobalt-700);
+  --bb-focus: var(--bb-cobalt-700);
+}
+
+/* Apply the theme's colours to the element carrying data-bb-theme */
+[data-bb-theme] { background: var(--bb-bg); color: var(--bb-text); }
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --bb-duration-fast: 0ms; --bb-duration-base: 0ms; --bb-duration-slow: 0ms; }
+}

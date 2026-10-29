@@ -1,0 +1,128 @@
+/* Bølgebrud look for Documenso (sign.boelgebrud.dk).
+   Documenso's whole colour theme is CSS variables (HSL triplets), so this file only redefines them.
+   Never edit bolgebrud.css by hand: change this template and run `python3 build-theme.py`.
+   Token placeholders (double braces, h:, c: or r: and a token name) become colour triplets: h gives "H S% L%", c gives "H, S%, L%", r gives "R G B". Values come from tokens.css. */
+
+@font-face {
+  font-family: "Epilogue";
+  src: url("/fonts/bolgebrud/Epilogue-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/bolgebrud/DMSans-Variable.woff2") format("woff2");
+  font-weight: 100 1000;
+  font-display: swap;
+}
+
+:root,
+.dark-mode-disabled {
+  --font-sans: "DM Sans";
+
+  --background: 285 40% 98.04%;
+  --foreground: 224.44 55.1% 9.61%;
+  --muted: 210 7.14% 94.51%;
+  --muted-foreground: 225 11.24% 34.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 224.44 55.1% 9.61%;
+  --card: 0 0% 100%;
+  --card-border: 220 5.45% 89.22%;
+  --card-foreground: 224.44 55.1% 9.61%;
+
+  --field-card: 302.4 100% 95.1%;
+  --field-card-border: 302.86 73.68% 77.65%;
+  --field-card-foreground: 224.44 55.1% 9.61%;
+
+  --widget: 285 40% 98.04%;
+  --widget-foreground: 210 7.14% 94.51%;
+  --border: 220 5.88% 80%;
+  --input: 220 5.88% 80%;
+
+  --primary: 216.16 100% 28.63%;
+  --primary-foreground: 302.35 100% 90%;
+  --secondary: 210 7.14% 94.51%;
+  --secondary-foreground: 224.44 55.1% 9.61%;
+  --accent: 302.4 100% 95.1%;
+  --accent-foreground: 224.44 55.1% 9.61%;
+  --destructive: 345.84 83.18% 41.96%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 216.16 100% 28.63%;
+  --radius: 0.75rem;
+
+  --envelope-editor-background: 210 7.14% 94.51%;
+
+  /* The newer components use a 50-950 scale instead of --primary */
+  --new-primary-50: 217.5, 44.44%, 96.47%;
+  --new-primary-100: 216.67, 40.91%, 91.37%;
+  --new-primary-200: 215.68, 40.66%, 82.16%;
+  --new-primary-300: 216.21, 39.73%, 71.37%;
+  --new-primary-400: 216.14, 40.37%, 57.25%;
+  --new-primary-500: 216.41, 53.42%, 42.94%;
+  --new-primary-600: 216.35, 100%, 26.86%;
+  --new-primary-700: 216.16, 100%, 28.63%;
+  --new-primary-800: 216.41, 100%, 22.94%;
+  --new-primary-900: 216.82, 100%, 17.25%;
+  --new-primary-950: 218, 100%, 11.76%;
+}
+
+/* Dark: navy base, pink as the light accent (the design system's dark-first look) */
+.dark:not(.dark-mode-disabled) {
+  --background: 224.44 55.1% 9.61%;
+  --foreground: 285 40% 98.04%;
+  --muted: 225 23.08% 20.39%;
+  --muted-foreground: 225 5.8% 72.94%;
+  --popover: 225.6 32.47% 15.1%;
+  --popover-foreground: 285 40% 98.04%;
+  --card: 225.6 32.47% 15.1%;
+  --card-border: 225 23.08% 20.39%;
+  --card-foreground: 285 40% 98.04%;
+  --widget: 225.6 32.47% 15.1%;
+  --widget-foreground: 225 23.08% 20.39%;
+  --border: 225 23.08% 20.39%;
+  --input: 225 23.08% 20.39%;
+  --field-border: 302.86 73.68% 77.65%;
+
+  --primary: 302.35 100% 90%;
+  --primary-foreground: 224.44 55.1% 9.61%;
+  --secondary: 225 23.08% 20.39%;
+  --secondary-foreground: 302.35 100% 90%;
+  --accent: 225 23.08% 20.39%;
+  --accent-foreground: 302.35 100% 90%;
+  --destructive: 345.84 83.18% 41.96%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 302.86 73.68% 77.65%;
+
+  --envelope-editor-background: 225.6 32.47% 15.1%;
+}
+
+/* Headlines in the brand display face; body text comes from --font-sans */
+h1 {
+  font-family: "Epilogue", "Arial Black", Arial, sans-serif;
+  font-weight: 800 !important;
+  letter-spacing: 0.01em;
+}
+
+/* A few colours are compiled into Documenso's stylesheet as fixed green values (the "documenso" scale),
+   not as variables, so they are replaced one by one: links, link hover, highlight fill and border. */
+.text-documenso-700, .text-documenso-800, .text-documenso-900 { --tw-text-opacity: 1; color: rgb(0 58 146 / var(--tw-text-opacity, 1)); }
+.hover\:text-documenso-600:hover { --tw-text-opacity: 1; color: rgb(180 70 27 / var(--tw-text-opacity, 1)); }
+.bg-documenso-200 { --tw-bg-opacity: 1; background-color: rgb(255 230 254 / var(--tw-bg-opacity, 1)); }
+.border-documenso-300 { --tw-border-opacity: 1; border-color: rgb(240 156 236 / var(--tw-border-opacity, 1)); }
+.dark .text-documenso-700, .dark .text-documenso-800, .dark .text-documenso-900 { color: rgb(255 204 253 / var(--tw-text-opacity, 1)); }
+.dark .hover\:text-documenso-600:hover { color: rgb(240 156 236 / var(--tw-text-opacity, 1)); }
+
+/* The plain "documenso" green (fills, text, checked boxes, hover states): cobalt on light, pink on dark */
+.bg-documenso,
+.group:hover .group-hover\:bg-documenso,
+.data-\[state\=checked\]\:bg-documenso[data-state=checked] { --tw-bg-opacity: 1; background-color: rgb(0 58 146 / var(--tw-bg-opacity, 1)); }
+.text-documenso,
+.group:hover .group-hover\:text-documenso { --tw-text-opacity: 1; color: rgb(0 58 146 / var(--tw-text-opacity, 1)); }
+.group:hover .group-hover\:border-documenso\/80 { border-color: rgb(0 58 146 / 0.8); }
+.dark .bg-documenso,
+.dark .group:hover .group-hover\:bg-documenso,
+.dark .data-\[state\=checked\]\:bg-documenso[data-state=checked],
+.dark\:bg-documenso:is(.dark:not(.dark-mode-disabled) *) { background-color: rgb(255 204 253 / var(--tw-bg-opacity, 1)); }
+.dark .text-documenso,
+.dark .group:hover .group-hover\:text-documenso { color: rgb(255 204 253 / var(--tw-text-opacity, 1)); }
+.dark .group:hover .group-hover\:border-documenso\/80 { border-color: rgb(255 204 253 / 0.8); }

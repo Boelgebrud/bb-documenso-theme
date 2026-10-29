@@ -1,0 +1,128 @@
+/* Bølgebrud look for Documenso (sign.boelgebrud.dk).
+   Documenso's whole colour theme is CSS variables (HSL triplets), so this file only redefines them.
+   Never edit bolgebrud.css by hand: change this template and run `python3 build-theme.py`.
+   Token placeholders (double braces, h:, c: or r: and a token name) become colour triplets: h gives "H S% L%", c gives "H, S%, L%", r gives "R G B". Values come from tokens.css. */
+
+@font-face {
+  font-family: "Epilogue";
+  src: url("/fonts/bolgebrud/Epilogue-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/bolgebrud/DMSans-Variable.woff2") format("woff2");
+  font-weight: 100 1000;
+  font-display: swap;
+}
+
+:root,
+.dark-mode-disabled {
+  --font-sans: "DM Sans";
+
+  --background: {{h:--bb-paper}};
+  --foreground: {{h:--bb-navy}};
+  --muted: {{h:--bb-grey-100}};
+  --muted-foreground: {{h:--bb-grey-600}};
+  --popover: {{h:--bb-white}};
+  --popover-foreground: {{h:--bb-navy}};
+  --card: {{h:--bb-white}};
+  --card-border: {{h:--bb-grey-200}};
+  --card-foreground: {{h:--bb-navy}};
+
+  --field-card: {{h:--bb-pink-100}};
+  --field-card-border: {{h:--bb-pink-300}};
+  --field-card-foreground: {{h:--bb-navy}};
+
+  --widget: {{h:--bb-paper}};
+  --widget-foreground: {{h:--bb-grey-100}};
+  --border: {{h:--bb-grey-300}};
+  --input: {{h:--bb-grey-300}};
+
+  --primary: {{h:--bb-cobalt-700}};
+  --primary-foreground: {{h:--bb-pink-200}};
+  --secondary: {{h:--bb-grey-100}};
+  --secondary-foreground: {{h:--bb-navy}};
+  --accent: {{h:--bb-pink-100}};
+  --accent-foreground: {{h:--bb-navy}};
+  --destructive: {{h:--bb-danger-600}};
+  --destructive-foreground: {{h:--bb-white}};
+  --ring: {{h:--bb-cobalt-700}};
+  --radius: 0.75rem;
+
+  --envelope-editor-background: {{h:--bb-grey-100}};
+
+  /* The newer components use a 50-950 scale instead of --primary */
+  --new-primary-50: {{c:--bb-cobalt-50}};
+  --new-primary-100: {{c:--bb-cobalt-100}};
+  --new-primary-200: {{c:--bb-cobalt-200}};
+  --new-primary-300: {{c:--bb-cobalt-300}};
+  --new-primary-400: {{c:--bb-cobalt-400}};
+  --new-primary-500: {{c:--bb-cobalt-500}};
+  --new-primary-600: {{c:--bb-cobalt-600}};
+  --new-primary-700: {{c:--bb-cobalt-700}};
+  --new-primary-800: {{c:--bb-cobalt-800}};
+  --new-primary-900: {{c:--bb-cobalt-900}};
+  --new-primary-950: {{c:--bb-cobalt-950}};
+}
+
+/* Dark: navy base, pink as the light accent (the design system's dark-first look) */
+.dark:not(.dark-mode-disabled) {
+  --background: {{h:--bb-navy}};
+  --foreground: {{h:--bb-paper}};
+  --muted: {{h:--bb-navy-700}};
+  --muted-foreground: {{h:--bb-navy-300}};
+  --popover: {{h:--bb-navy-800}};
+  --popover-foreground: {{h:--bb-paper}};
+  --card: {{h:--bb-navy-800}};
+  --card-border: {{h:--bb-navy-700}};
+  --card-foreground: {{h:--bb-paper}};
+  --widget: {{h:--bb-navy-800}};
+  --widget-foreground: {{h:--bb-navy-700}};
+  --border: {{h:--bb-navy-700}};
+  --input: {{h:--bb-navy-700}};
+  --field-border: {{h:--bb-pink-300}};
+
+  --primary: {{h:--bb-pink-200}};
+  --primary-foreground: {{h:--bb-navy}};
+  --secondary: {{h:--bb-navy-700}};
+  --secondary-foreground: {{h:--bb-pink-200}};
+  --accent: {{h:--bb-navy-700}};
+  --accent-foreground: {{h:--bb-pink-200}};
+  --destructive: {{h:--bb-danger-600}};
+  --destructive-foreground: {{h:--bb-white}};
+  --ring: {{h:--bb-pink-300}};
+
+  --envelope-editor-background: {{h:--bb-navy-800}};
+}
+
+/* Headlines in the brand display face; body text comes from --font-sans */
+h1 {
+  font-family: "Epilogue", "Arial Black", Arial, sans-serif;
+  font-weight: 800 !important;
+  letter-spacing: 0.01em;
+}
+
+/* A few colours are compiled into Documenso's stylesheet as fixed green values (the "documenso" scale),
+   not as variables, so they are replaced one by one: links, link hover, highlight fill and border. */
+.text-documenso-700, .text-documenso-800, .text-documenso-900 { --tw-text-opacity: 1; color: rgb({{r:--bb-cobalt-700}} / var(--tw-text-opacity, 1)); }
+.hover\:text-documenso-600:hover { --tw-text-opacity: 1; color: rgb({{r:--bb-orange-700}} / var(--tw-text-opacity, 1)); }
+.bg-documenso-200 { --tw-bg-opacity: 1; background-color: rgb({{r:--bb-pink-100}} / var(--tw-bg-opacity, 1)); }
+.border-documenso-300 { --tw-border-opacity: 1; border-color: rgb({{r:--bb-pink-300}} / var(--tw-border-opacity, 1)); }
+.dark .text-documenso-700, .dark .text-documenso-800, .dark .text-documenso-900 { color: rgb({{r:--bb-pink-200}} / var(--tw-text-opacity, 1)); }
+.dark .hover\:text-documenso-600:hover { color: rgb({{r:--bb-pink-300}} / var(--tw-text-opacity, 1)); }
+
+/* The plain "documenso" green (fills, text, checked boxes, hover states): cobalt on light, pink on dark */
+.bg-documenso,
+.group:hover .group-hover\:bg-documenso,
+.data-\[state\=checked\]\:bg-documenso[data-state=checked] { --tw-bg-opacity: 1; background-color: rgb({{r:--bb-cobalt-700}} / var(--tw-bg-opacity, 1)); }
+.text-documenso,
+.group:hover .group-hover\:text-documenso { --tw-text-opacity: 1; color: rgb({{r:--bb-cobalt-700}} / var(--tw-text-opacity, 1)); }
+.group:hover .group-hover\:border-documenso\/80 { border-color: rgb({{r:--bb-cobalt-700}} / 0.8); }
+.dark .bg-documenso,
+.dark .group:hover .group-hover\:bg-documenso,
+.dark .data-\[state\=checked\]\:bg-documenso[data-state=checked],
+.dark\:bg-documenso:is(.dark:not(.dark-mode-disabled) *) { background-color: rgb({{r:--bb-pink-200}} / var(--tw-bg-opacity, 1)); }
+.dark .text-documenso,
+.dark .group:hover .group-hover\:text-documenso { color: rgb({{r:--bb-pink-200}} / var(--tw-text-opacity, 1)); }
+.dark .group:hover .group-hover\:border-documenso\/80 { border-color: rgb({{r:--bb-pink-200}} / 0.8); }
